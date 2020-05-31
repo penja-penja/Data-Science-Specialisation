@@ -1,0 +1,82 @@
+---
+title: "Week 4 notes"
+output: github_document
+---
+
+## Make data consistent
+- Change case: tolower(), toupper()
+- Split data string: strsplit()
+
+## Replace and manipulate data 
+- sapply(): Applies a function to each element in a vector or list
+- Replace first value found with sub(<values to be replaced>, "new value", data)
+- Replace all values found with gsub()
+
+## Find values
+- grep() - Find and return index of fully or partially matched element
+- grepl() - For each element return a boolean to indicate if a match is found
+
+## Other string functions
+- library(stringr)
+- nchar, substr, paste, paste0, str_trim
+
+## Dataset best practice
+Names of variables should be:
+- All lower case when possible
+- descriptive
+- Not duplicated
+- Not have underscores / dots / white spaces
+
+Variables with character values
+- Should usually be made into factor variables
+- Should be descriptive
+
+## Regular expressions
+- ```^``` - Start of the line. When used in the beginning of a character, "^" also denotes NOT.
+- ```$``` - End of the line
+- ```[]``` - List
+- ```.``` - refer to any character. e.g 9.11 look for 9, followed by any character followed by 11
+- ```|``` - combine different expressions
+- ```()``` - Subexpressions
+- ```?``` - Expression is optional
+- ```*``` - Repeation of any time
+- ```+``` - Repeation of at least once
+- ```{}``` - Interval qualifier for min and max number of matches in an expression
+- ```m,n``` - Match at least m but not more than n
+- ```m``` - Exact matches
+- ```m```, at least m matches
+- ```*?``` - the question mark makes ```*``` less greedy
+
+## Dates
+- Date() - Return character type
+- Sys.Date() - Return Date type
+- format() - %a abbreviated weekday, %unabbreviated weekday, 
+- format() - %m is month, %b abbreviated month, %B unabbreviated month
+- format() - %y two digit year, %Y four digit year
+- POSIXct
+
+## lubriate
+- wday() - shows day of week and represented as a number. Set label = TRUE display the "name" of the weekday
+- ymd(), mdy(), dmy()
+- The with_tz() function returns a date-time as it would appear in another time zone
+
+
+## Open ata site
+- UN - https://data.un.org
+- US - https://www.data.gov
+- UK - https://data.gov.uk
+- AU - https://data.gov.au
+- Gapminder (health): https://www.gapminder.org
+
+## Data scientists
+- Kaggle - https://www.kaggle.com/
+- Hilary Mason
+- Peter Skomoroch
+- Jeff Hammerbacher
+- Gregory Piatesky-Shapiro
+
+## API with R interface
+- twitterR - https://docs.ropensci.org/rtweet/
+- PLoS - https://plos.org/
+- ROpenSci - https://ropensci.org/
+- RGoogleMap - https://www.rdocumentation.org/
