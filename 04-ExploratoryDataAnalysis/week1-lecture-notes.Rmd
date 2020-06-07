@@ -1,0 +1,178 @@
+---
+title: "week1-lecture-notes"
+author: "Ashley Su"
+date: "01/06/2020"
+output: html_document
+---
+#Exploratory data
+- Exploratory graphs serve mostly the same functions as graphs. They help us find patterns in data and
+  understand its properties. They suggest modeling strategies and help to debug analyses. DON'T use
+  exploratory graphs to communicate results.
+
+# Principles of Analytic Graphics
+## Principle 1: Show comparison
+- Evidence of hypothesis is always "relative" to another competing hypothesis
+- Always as "compared to what?"
+
+## Principle 2: Show causality, mechanism, explanation, systematic structure
+- Explain how the system is working
+
+## Principle 3: Show multivariate data
+- The world is complex, it will be affected by many variables
+- Multivariate = more than 2 variables
+- As additional variable is bought into analysis, it might justify / explain certain hypothesis 
+
+## Principle 4: Integration of evidence
+- Completely integrate words, numbers, images, diagram
+- Data graphics should make use of many modes of data presentation
+
+## Principle 5: Describe & document the evidence
+- This is achieved with appropriate labels, scakes, sources etc
+- Tell complete story via data graphic
+
+## Principles 6: Content is king
+- Quality, relevance and integrity of content determines the creditibility of the analytical presentation
+
+# Exploratory graphs
+## The purpose is to:
+- To understand data properties
+- To find patterns in data
+- To suggest modeling strategies
+- To communicate results
+- To device "next step"
+
+## The characteristics
+- Made quicky
+- For personal understand and summarise and highkight any features that might of interest
+- Axes / legend / colour size can all be cleaned up later
+
+## One dimensional summaries
+- Barplot (categorical)
+- Histogram
+- Boxplot
+
+## Two dimensional summaries
+- Two dimensions
+  - Multiple / overlayed 1-D plots
+    e.g Multiple Historgrams, multiple boxplots
+  - Scatterplot
+    - Add color to present another dimension (variables)
+    - Multiple scatterplots
+  - Smooth scatterplot
+  
+- > 2 dimension
+  - Overlayed / multiple 2D plot -> most useful
+  
+## Resources
+- R Graph Gallery - https://www.r-graph-gallery.com/
+  - Colourful with nice interface
+- R Bloggers - https://www.r-bloggers.com/
+
+# Plotting
+- There are 3 plotting systems. Not able used interchangeably, an only choose a system at a time.
+  
+## The Base Plotting System
+- Original plotting system in R
+- Start blank and building up with function, add text, lines, pints and axis
+- Problem: 
+  - Can't go back once plot has started; need to plan well in advance
+  - Difficult to translate to others
+- Powerful for creating 2-D graphics.
+- If nothing is passed into plot(), it will use default methods.
+- Common Base Graphics Parameters
+  - pch: the plotting symbol (default of open circle)
+  - lty: the line type (default is solid), there is solid, dashed
+  - lwd: the line width, specificed as an integer multiple
+  - col: the plotting colour, specificed as a number or hex code
+  - xlab: character string for the x-axis label
+  - ylab: character string for the y-axis label
+  - las: the orientation of the axis labels
+  - bg: background colour
+  - mar: the margin size
+  - oma: the outer margin size (defualt is 0 for all sides)
+  - mfrow: number of plots per row, column (plots are filled row-wise), 
+    e.g. mfrow = c(1,2) meaning 1 row and 2 columns
+  - mfcol: number of plots per row, column (plots are filled column-wise)
+- Base plotting functions
+  - plot: scatterplot
+  - lines: add lines to a plot
+  - points: add points to a plot
+  - text: add text labels to a plot 
+  - title: add annotation to x, y axis labels, title, subtitle, outer margin
+  - mtext: add arbitrary text to the margins (innner or outer) of the plot
+  - axis: adding axis ticks/labels
+  
+## The Lattice System
+- library(lattice)
+- Every plot is created via single function call, e.g xyplot, bwplot etc
+- Useful for conditioning types of plots
+  e.g Looking at how y changes with x across levels of z
+- Good for putting many plots on screen
+- Problem:
+  - Hard to specify everything in single function call
+  - Cant add to it after function has been called
+  - Need to go back and edit the plotting function
+  
+## The ggplot2 System
+- Mix idea from base and lattice plotting system
+  - Can build up like base plot
+  - Many functionalities like spacing, text, titles are done automatically like Lattice
+  - Good for conditioning like Lattice
+- Come with a lot of default, but allows customisation
+
+## Plotting system
+- Core plotting & graphics engine in R resided in:
+  - graphics: the "base" graph syste, include plotting function such as plot, hist and box
+  - grDevices: code for implementing the various graphic devices such as PDF, PostScript and png
+- Lattice plotting system is implemented in 
+  - Independent of "base" graph system
+  - lattice - contain code for producing Trellis graphic, eg xyplot, bwplot
+  - grid: implements a diffrent graphing system, this is seldomly called directly
+
+## The process of making a plot
+- Considerations:
+  - Where will it be used?
+    - On laptop, webiste, pdf?
+  - Need to resize?
+
+## Graphic devices
+- Something or some place where you can make a plot appear
+  e.g Window on your computer, PDF, PNG
+- Two basic file devices:
+  - vector device
+    - good for:
+      - line drawings
+      - plots with solid colours with modest number of points
+    - has 4 specific formats
+      - pdf: 
+        - useful for line-type graphic and papers
+        - reseize well
+        - portable
+        - inefficient if has many web-based plots
+      - svg (xml-based)
+        - support animation is potentially useful for web-based plots
+      - win.metafile
+        - windows only
+      - postscript
+        - old format, but resize well
+  - bitmaps devices, good for:
+    - large number of points, natural scenes and web based plots
+    - has 4 different btmap format
+      - png
+        - good for line drawing with solid colours.
+        - good for plots with many points
+        - compatible with most web browsers
+        - not resize well
+      - jpeg
+        - good for photgraph or natural scenes.
+        - good for plots with many points
+        - not good for line drawing
+        - dont resize well
+        - compatible with most web browser
+      - tiff
+
+- Every graphics device is assigned an integer >= 2. 
+- Active graphic device can be changed with dev.set(<integer>)
+
+  
+
