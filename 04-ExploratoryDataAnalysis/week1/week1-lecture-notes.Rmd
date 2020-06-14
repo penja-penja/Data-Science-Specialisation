@@ -7,7 +7,7 @@ output: html_document
 #Exploratory data
 - Exploratory graphs serve mostly the same functions as graphs. They help us find patterns in data and
   understand its properties. They suggest modeling strategies and help to debug analyses. DON'T use
-  exploratory graphs to communicate results.
+  exploratory graphs to communicate results
 
 # Principles of Analytic Graphics
 ## Principle 1: Show comparison
