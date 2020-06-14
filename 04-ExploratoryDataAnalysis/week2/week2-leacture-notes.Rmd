@@ -67,7 +67,7 @@ output: html_document
     - Global theme:
       - For whole plot, eg theme(legend.position = 'none')
       - Two stanaard appearance: theme_gray(), theme_bw()
-    - arguement aes() will assign colour to data variable.
+    - arguement aes() will assign colour to data variable
     
 ## Colors
 - sample(color(), 10): provide sample of 10 colours
