@@ -1,0 +1,86 @@
+---
+title: "week2-lecture-notes"
+author: "Ashley Su"
+date: "08/06/2020"
+output: html_document
+---
+
+# The Lattice Plotting System in R
+- Optimised for high density plot
+- implemente in lattice package
+- Implement on top of grid
+
+## Lattice Functions
+- xyplots: main function
+- xyplot(y ~ x | f * g, data)
+  - f and g are conditionaling variabe (optional)
+  - * indicates an interaction between two variables
+- Base graph plot data directly to the graphic devices
+- Lattice graph function return an object of class trellis
+  - This object has to be printed
+  - It is two step process, but it is not visible to the user
+- Panel function controls what happens inside each panel of the plot
+- Can't mix function from different plotting system
+- The lattice system is ideal for creating conditioning plots where you examine the same kind of plot under many different conditions.
+
+## ggplot2 package
+- Grammar of Graphics
+- Basic: qplot() - quick plot
+  - Look for data in a data frame
+  - Made up of aesthetics (size, shape, colour) and geoms (points, lines)
+- Factor indicate subset of data
+  e.g factor - gender, which consists of male and female
+  - need to be informatively lablled
+- qplot:
+  - Facets: provide different panel
+    - rhs variable: column
+    - lhs variable: row
+    - separate by ~
+  - Dont bother customise qplot(). Go with ggplot2 if customisatio is required
+- ggplot2
+  - Requirements:
+    - Need a data frame
+    - aesthetic mappings: how data are mapped to colour, size
+    - geoms: points, lines and shapes etc
+    - facets: conditional plots
+    - stats: quantiles, smoothings
+    - scales: male = red, female = blue (?)
+    - Coordinates system
+    - Contain 7 basic components
+      - Data Frame
+      - Aesthetic Mappings: determine how data are mapped to color, size etc
+      - Geoms (geomatric objects): points, lines, shapes
+      - Facets: Panels used in conditional plots
+      - Stats: statistical transformations such as binning, quantiles and smoothing that applies to data
+      - Scales: male = red, female = blue
+      - Coordinate system
+  - Built up in layers
+    - Plot the data: e.g x, y
+    - Overlay summary: e.g regression or smoother lines
+    - Metadata and annotation
+  - Create ggplot object 
+  - Explicitly save and print p <- ggplot object: g + geom_point()
+  - Auto print plot object without saving: g + geom_print()
+  - Adding smoother: geom_smooth(method = "lm"), lm = linear model
+  - Annotation:
+    - Labels: xlab(), ylab(), labs(), ggtitle()
+    - Global theme:
+      - For whole plot, eg theme(legend.position = 'none')
+      - Two stanaard appearance: theme_gray(), theme_bw()
+    - arguement aes() will assign colour to data variable.
+    
+## Colors
+- sample(color(), 10): provide sample of 10 colours
+- colorRamp and colorRampPalette are additional function that provide additional colour options
+  - take color names as arguements. Arguement colours are blended in different proportion to form new colors
+- colorRamp:
+  - Takes a palette of colours and returns a function that takes values between 0 and 1
+    x <- colorRamp(c("red", "blue"))
+    x(0)
+  - Returns RGB
+- colorRampPalette
+  x <- colorRampPalette(c("red", "blue"))
+  x(2)
+  - Returns hex
+- Entering more colour numbers creates more colour variations
+- RColorBrewer package include 3 types of palettes, sequential, divergent and qualitative
