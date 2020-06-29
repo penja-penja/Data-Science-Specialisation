@@ -1,0 +1,89 @@
+---
+title: "week3-lecture-notes"
+author: "Ashley Su"
+date: "15/06/2020"
+output: html_document
+---
+
+# Hierarchical clustering
+- Simple and quick way to examine and display multi-dimensional data.
+- Useful in the early stages of analysis
+  - e.g finding pattern or relationship between different factors or variables
+- Creates hierarchy of clusters
+- Organise data points that are close into groups, lead to questions such as "How do we define close?"
+- An agglomerative (bottom-up) approach
+  - Each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy
+    - A process of finding the closest two points and put them together in one cluster and the process repeats
+    - Process is repeated until a reasonable stopping place is reached
+- Requires
+  - Ad defined distance
+  - A merging approach
+- Produces
+  - A tree showing how close things are to each other
+  
+## How do we define close?
+- Distance matrix:
+  - Continuouse: Euclidean, Manhattan
+  - Continuous
+  - Binary
+  
+- dist():
+  - Gives ou all the pairwise distance
+  - When no arguement is provided, default to Euclidean distance metric
+
+- hclust() produces dendrograms
+- heatmap()
+  - good for visualise large table or matrix of number
+  - http://sebastianraschka.com/Articles/heatmaps_in_r.html#clustering
+  
+# K-means Clustering
+- Good for early stage when trying to learn pattern of data
+- Defining close
+- Partioning approach
+  - Fix a number of clusters
+  - Get 'centroids" of each cluster
+  - Assign things to closest centroid
+  - Recalculate centroids
+- Requires
+  - A defined distance metrics
+  - A number of clsuters
+  - An initial guess
+- kmeans()
+
+# Dimension Reduction
+- The goal is to reduce variable / observations. Can be achieved through:
+  - Single value decomposition
+  - Principal components
+
+## Single value decomposition
+- A processes to find subsets of variables in datasets that contain their essences.
+- X = UDV
+  - U and V are the far right and left vectors
+  - D is the diagonal matrix
+- Same as Single Component functions the same. Use same data matrix with either of the method will result in same plot
+- impute package: impute missing data points
+
+## Principal Component Analysis(PCA)
+- A simple, non-parametric method for extracting relevant information from confusing data sets.
+- A method to reduce a high-dimensional data set to its essential elements (not lose information) and explain the variability in the data.
+- SVD and PCA are closely related.
+
+# Working with colours
+- grDevices packages has two functions
+  - colorRamp
+    - take value between 0 and 1, indicating the extremes of the colour palette
+  - ColorRampPalette
+    - Takes palette of colours, returns a function
+    - returned function takes an integer and return a vector of colours
+- RColorBrewer package
+  - Available on CRAN
+  - Three types of palettes
+    - Sequential - used for ordered data, for numerical data that have a low and a high.
+    - Diverging
+    - Qualitative
+  - Used in conjunction with colorRamp and colorRampPalette
+- colours() lists the names of colours available in any plotting function
+- Other colour functions
+  - rgb
+  - alpha: color transparency
+  - colorspace package
