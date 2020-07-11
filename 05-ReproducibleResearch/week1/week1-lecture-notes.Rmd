@@ -1,0 +1,78 @@
+---
+title: "week1-lecture-notes"
+author: "Ashley Su"
+date: "02/07/2020"
+output: html_document
+---
+
+Golden rule to reproducible research is to script everything
+
+# Structure of data analysis
+## Steps
+1. Define a question
+   - Start with a general question e.g Can I automatically detect emails that are SPAM that are not?
+   - Make it concrete, e.g. Can I use quantitative characteristics of the emails to classify as SPAM
+   
+   The data set may depend on your goal:
+   - Descriptive: a whole population
+   - Exploratory: a random sampe with many variable measured
+   - Inferential: the righ population, randomly sampled
+   - Predictive: a training and test data set from the same population
+   - Casual: data from a randomized study
+   - Mechnistic: data about all component of the system
+
+2. Challenge results
+- Challenge all steps
+  - Question
+  - Data source
+  - Processing
+  - Analysis
+  - Conclusion
+- Challenge measure of uncertainty
+- Challenge choices of terms to include in models
+- Think of potential alternative analysis
+
+3. Systhesis / write up results
+- Lead with the question
+- Summaryise the analyses into the story
+- Dont include every analysis, include in:
+  - If it is needed for the story
+  - If it is needed to address a challenge
+- Order analyses according to the story, rather than chronologically
+- Inlcude "pretty" figures that contribute to the story
+  
+4. Organise a Data Analysis
+- Data analysis Files
+  - Data: 
+    Raw data: 
+      - Should be stored in your analysis folder
+      - If from web, include URL, description and date accessed in README
+    Processed data:
+      - Should be named so it is easy to see which script it match to
+      - Should be tidy
+  - Figures: 
+    Exploratory figures
+      - Figures made during the course of analysis, not necessarily part of final figure
+      - No need to be tidy
+    Final figures
+      - Usualy a small subset of the original figures
+      - Pretty to make the figure clear
+      - Might have multiple panels
+  - R codes: Raw / unused scripts, final scripts, R Markdown
+    - May be less commented
+    - May be multiple versions
+    - May include analyses that are later discarded
+  - Text: README, text of analysis / report
+    - Clearly commented
+    - Include processing details
+    - Only analyses that appear in the fina write up
+    - R markdown can be used to generate reproducible reports
+    - Readme might not be required if R markdown already exist
+    - Document: include -
+      - title
+      - introduction (motivation)
+      - methods: statistical used
+      - results: include measures of uncertainity
+      - conclusion: include potential problems
+    
+  
