@@ -1,0 +1,28 @@
+---
+title: "week2-lecture-notes"
+author: "Ashley Su"
+date: "04/07/2020"
+output: html_document
+---
+
+# Literate Statistical Programming
+- Literate programming need
+  - A documentation language
+  - A programming language
+- knitr supports a variety of documentation languages
+
+## How to make work reproducible
+- Keep original data 
+- Keep a record of code of every step in the process
+
+## knitr
+- Good for
+  - Small medium tech doc
+  - Tutorial
+  - Manual
+  - Reorts
+  - Data preprocessing documents / summaries
+- Not good for
+  - Long research articles
+  - Complex time consuming computations
+  - Documents that require precise formatting
